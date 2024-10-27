@@ -1,0 +1,50 @@
+GET http://localhost:3000/produtos
+
+###
+POST http://localhost:3000/produtos
+Content-Type: application/json
+
+{
+    "nome_produto": "Camiseta",
+    "preco": 19.99
+}
+
+###
+
+PUT http://localhost:3000/produtos/axlyz5hGFPc1w19BkB7U
+Content-Type: application/json
+
+{
+    "nome_produto": "Camiseta GG",
+    "preco": 22.99
+}
+
+###
+
+DELETE http://localhost:3000/produtos/VV3yratJ3Waoc96zrtWt
+
+###
+GET http://localhost:3000/clientes
+
+###
+POST http://localhost:3000/clientes
+Content-Type: application/json
+
+{
+  "nome_cliente": "Joselito da Silva",
+  "cpf": 95869657485
+}
+
+###
+
+PUT http://localhost:3000/clientes/1QVTSWbqDU7sbXTFl4AK
+Content-Type: application/json
+
+{
+  "nome_cliente": "Carlitos Tevez",
+  "cpf": 25468547598
+}
+
+###
+
+DELETE http://localhost:3000/clientes/YSDX7Ok5eWEWdtrfnOL3
