@@ -11,7 +11,7 @@ const clientesRoutes = (server) => {
                 return res.status(400).send('Os campos "nome_cliente" e "cpf" são obrigatórios.');
             }
 
-            const docRef = await addDoc(collection(db, "clientes"), {nome_cliente, cpf});
+            const docRef = await addDoc(collection(db, "Clientes"), {nome_cliente, cpf});
 
             res.status(201).send(`Cliente adicionado com o ID: ${docRef.id}`);
         } catch (error) {
@@ -22,7 +22,7 @@ const clientesRoutes = (server) => {
     server.get("/clientes", async (req, res) => {
         {
             try {
-                const busca = await getDocs(collection(db, "clientes"));
+                const busca = await getDocs(collection(db, "Clientes"));
 
                 const clientes = busca.docs.map(doc => ({id: doc.id, ...doc.data()}));
 
@@ -43,7 +43,7 @@ const clientesRoutes = (server) => {
                 return res.status(400).send('Os campos "nome_cliente" e "cpf" são obrigatórios.');
             }
 
-            const docRef = doc(db, "clientes", id);
+            const docRef = doc(db, "", id);
 
             await updateDoc(docRef, {nome_cliente, cpf});
 
@@ -56,7 +56,7 @@ const clientesRoutes = (server) => {
     server.delete('/clientes/:id', async (req, res) => {
         try {
             const {id} = req.params;
-            const docRef = doc(db, "clientes", id);
+            const docRef = doc(db, "Clientes", id);
 
             await deleteDoc(docRef);
 

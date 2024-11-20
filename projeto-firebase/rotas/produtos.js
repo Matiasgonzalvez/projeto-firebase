@@ -11,7 +11,7 @@ const produtsRoutes = (server) => {
                 return res.status(400).send('Os campos "nome_produto" e "preco" são obrigatórios.');
             }
 
-            const docRef = await addDoc(collection(db, "produtos"), {nome_produto, preco});
+            const docRef = await addDoc(collection(db, "Produtos"), {nome_produto, preco});
 
             res.status(201).send(`Produto adicionado com o ID: ${docRef.id}`);
         } catch (error) {
@@ -22,7 +22,7 @@ const produtsRoutes = (server) => {
     server.get("/produtos", async (req, res) => {
         {
             try {
-                const busca = await getDocs(collection(db, "produtos"));
+                const busca = await getDocs(collection(db, "Produtos"));
 
                 const produtos = busca.docs.map(doc => ({id: doc.id, ...doc.data()}));
 
@@ -43,7 +43,7 @@ const produtsRoutes = (server) => {
                 return res.status(400).send('Os campos "nome_produto" e "preco" são obrigatórios.');
             }
 
-            const docRef = doc(db, "produtos", id);
+            const docRef = doc(db, "Produtos", id);
 
             await updateDoc(docRef, {nome_produto, preco});
 
@@ -56,7 +56,7 @@ const produtsRoutes = (server) => {
     server.delete('/produtos/:id', async (req, res) => {
         try {
             const {id} = req.params;
-            const docRef = doc(db, "produtos", id);
+            const docRef = doc(db, "Produtos", id);
 
             await deleteDoc(docRef);
 
