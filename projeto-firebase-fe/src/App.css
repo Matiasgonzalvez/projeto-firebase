@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.App {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Abel";
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: aliceblue;
+  background-color: #00001a;
+}
+
+header a {
+  margin: 2rem;
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: 500;
+  font-size: large;
+}
+
+#tabela {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#header_tabela {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #00001a;
+  color: aliceblue;
+  border-radius: 5px 5px 0 0;
+}
+
+#header_tabela div {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+#body_tabela {
+  display: flex;
+  flex-direction: column;
+}
+
+.transacoes {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.transacoes:last-child {
+  border-bottom: none;
+}
+
+.transacoes div {
+  flex: 1;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  background-color: #00001a;
+  color: aliceblue;
+  justify-self: baseline;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: 3rem;
+}
+.home {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.resumo_transacoes {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: solid 1px #ccc;
+  margin: 2rem;
+}
+
+.resumo_transacoes_valores {
+  margin: 2rem;
+  font-size: 1.5rem;
+  border-bottom: solid 1px #ccc;
+  width: 80%;
+  font-weight: 500;
+  color: black;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #00001a;
+  color: white;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #e0f7fa;
+}
+
+.table td {
+  color: #333;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.table button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.table button:hover {
+  opacity: 0.9;
+}
+
+.table button:first-child {
+  background-color: #4CAF50; /* Cor para o botão "Editar" */
+  color: white;
+}
+
+.table button:last-child {
+  background-color: #f44336; /* Cor para o botão "Excluir" */
+  color: white;
+}
+
