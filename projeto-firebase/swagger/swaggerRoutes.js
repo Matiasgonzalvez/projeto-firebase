@@ -96,7 +96,25 @@ const swaggerRoutes = {
                     404: { description: 'Cliente não encontrado' },
                 },
             },
+            delete: {
+                summary: 'Remove um cliente',
+                tags: ['Clientes'],
+                parameters: [
+                    {
+                        in: 'path',
+                        name: 'id',
+                        schema: { type: 'string' },
+                        required: true,
+                        description: 'ID do cliente',
+                    },
+                ],
+                responses: {
+                    200: { description: 'Cliente removido com sucesso' },
+                    404: { description: 'Cliente não encontrado' },
+                },
+            }
         },
+        
 
         // Rotas de Produtos
         '/produtos': {

@@ -2,16 +2,16 @@ const { collection, getDocs, query, where, setDoc, doc } = require('firebase/fir
 const db = require('./db/firebase');
 
 const clientesSeed = [
-    { nome: "Alice Silva", cpf: "12345678901" },
-    { nome: "Bruno Costa", cpf: "23456789012" },
-    { nome: "Carla Souza", cpf: "34567890123" },
-    { nome: "Daniel Santos", cpf: "45678901234" },
-    { nome: "Elaine Pereira", cpf: "56789012345" },
-    { nome: "Fernando Lima", cpf: "67890123456" },
-    { nome: "Gustavo Nunes", cpf: "78901234567" },
-    { nome: "Heloísa Alves", cpf: "89012345678" },
-    { nome: "Igor Cardoso", cpf: "90123456789" },
-    { nome: "Julia Ramos", cpf: "01234567890" }
+    { nome_cliente: "Alice Silva", cpf: "12345678901" },
+    { nome_cliente: "Bruno Costa", cpf: "23456789012" },
+    { nome_cliente: "Carla Souza", cpf: "34567890123" },
+    { nome_cliente: "Daniel Santos", cpf: "45678901234" },
+    { nome_cliente: "Elaine Pereira", cpf: "56789012345" },
+    { nome_cliente: "Fernando Lima", cpf: "67890123456" },
+    { nome_cliente: "Gustavo Nunes", cpf: "78901234567" },
+    { nome_cliente: "Heloísa Alves", cpf: "89012345678" },
+    { nome_cliente: "Igor Cardoso", cpf: "90123456789" },
+    { nome_cliente: "Julia Ramos", cpf: "01234567890" }
 ];
 
 async function upsertClientes() {
@@ -23,11 +23,11 @@ async function upsertClientes() {
 
         if (snapshot.empty) {
             await setDoc(doc(clientesCollection), cliente);
-            console.log(`Cliente ${cliente.nome} adicionado.`);
+            console.log(`Cliente ${cliente.nome_cliente} adicionado.`);
         } else {
             const existingDoc = snapshot.docs[0].ref;
             await setDoc(existingDoc, cliente, { merge: true });
-            console.log(`Cliente ${cliente.nome} atualizado.`);
+            console.log(`Cliente ${cliente.nome_cliente} atualizado.`);
         }
     }
 }

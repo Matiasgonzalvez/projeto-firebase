@@ -22,11 +22,11 @@ const ProdutosPage = () => {
         () => [
             {
                 Header: "Nome",
-                accessor: "Nome",
+                accessor: "nome_produto",
             },
             {
                 Header: "Preço",
-                accessor: "Preco",
+                accessor: "preco",
                 Cell: ({value}) => `R$ ${parseFloat(value).toFixed(2)}`
             },
             {

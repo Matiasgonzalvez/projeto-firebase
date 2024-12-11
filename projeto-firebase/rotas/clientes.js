@@ -4,6 +4,7 @@ const db = require("../db/firebase");
 
 const clientesRoutes = (server) => {
     server.post("/clientes", async (req, res) => {
+        
         try {
             const {nome_cliente, cpf} = req.body;
 
