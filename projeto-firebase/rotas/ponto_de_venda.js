@@ -11,6 +11,7 @@ const pdvRoutes = (server) => {
                 return res.status(400).send('Os campos "produtos", "clienteId" e "valorPago" são obrigatórios.');
             }
 
+            //Busca dados do cliente
             const clienteRef = doc(db, 'Clientes', clienteId);
             const clienteSnap = await getDoc(clienteRef);
 
@@ -20,6 +21,7 @@ const pdvRoutes = (server) => {
 
             const cliente = clienteSnap.data();
 
+            //Busca dados dos produtos
             let itensCupom = [];
             let valorTotal = 0;
 
@@ -31,9 +33,9 @@ const pdvRoutes = (server) => {
                     const produto = produtoSnap.data();
 
                     itensCupom.push({
-                        nome: produto.Nome || 'Nome não disponível',
+                        nome: produto.nome_produto || 'Nome não disponível',
                         descricao: produto.Descricao || 'Descrição não disponível',
-                        valor_unitario: produto.Preco || 0
+                        valor_unitario: produto.preco || 0
                     });
 
                     valorTotal += produto.Preco || 0;
@@ -42,15 +44,17 @@ const pdvRoutes = (server) => {
                 }
             }
 
+            //Cálculo do troco
             if (valorPago < valorTotal) {
                 return res.status(400).send('Valor pago insuficiente para cobrir o total da compra.');
             }
 
             const troco = parseFloat((valorPago - valorTotal).toFixed(2));
 
+            //Gera o cupom
             const cupom = {
                 cliente: {
-                    nome: cliente.nome,
+                    nome: cliente.nome_cliente,
                     cpf: cliente.cpf
                 },
                 itens: itensCupom,
@@ -59,6 +63,7 @@ const pdvRoutes = (server) => {
                 troco: troco
             };
 
+            //Retorna o cupom
             res.status(201).json(cupom);
 
         } catch (error) {
