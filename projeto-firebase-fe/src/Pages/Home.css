@@ -1,0 +1,44 @@
+.home-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .home-about, .home-features, .home-team, .home-gpt-story {
+    margin: 20px 0;
+  }
+  
+  h1, h2 {
+    color: #4CAF50;
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .team-cards {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .team-card, .story-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #777;
+  }
+  
