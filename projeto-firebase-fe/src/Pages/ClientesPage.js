@@ -11,7 +11,7 @@ const ClientesPage = () => {
     const [showForm, setShowForm] = useState(false); // Controle do modal de adição/edição
     const [nomeCliente, setNomeCliente] = useState(""); // Estado para nome do cliente
     const [cpf, setCpf] = useState(""); // Estado para CPF do cliente
-    const [clienteEditando, setClienteEditando] = useState(null); // Estado para o cliente que está sendo editado
+    const [clienteEditando, setClienteEditando] = useState({}); // Estado para o cliente que está sendo editado
 
     // Carrega os dados dos clientes
     useEffect(() => {
@@ -88,7 +88,7 @@ const ClientesPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ nome_cliente: nomeCliente, cpf: cpf }),
+                body: JSON.stringify({ nome_cliente: nomeCliente, cpf}),
             });
 
             console.log('Resposta recebida, status:', response.status);
@@ -105,18 +105,15 @@ const ClientesPage = () => {
                 setShowForm(false);
                 setNomeCliente("");
                 setCpf("");
-                setClienteEditando(null); // Limpa o estado após a edição
+                setClienteEditando(null);
             } else {
                 const errorText = await response.text();
                 console.error('Erro ao atualizar o Cliente:', errorText);
                 alert(`Erro ao atualizar o Cliente: ${errorText}`);
             }
         } catch (error) {
-            setShowForm(false);
-            setNomeCliente("");
-            setCpf("");
-            setClienteEditando(null);
-            console.error('Erro ao tentar editar cliente:', error.message);
+            console.error('Erro ao tentar editar cliente:', error);
+            alert(`Erro ao tentar editar cliente: ${error.message}`);
         }
     };
 

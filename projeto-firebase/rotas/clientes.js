@@ -37,19 +37,20 @@ const clientesRoutes = (server) => {
 
     server.put('/clientes/:id', async (req, res) => {
         try {
-            const {id} = req.params;
-            const {nome_cliente, cpf} = req.body;
+            const { id } = req.params;
+            const { nome_cliente, cpf } = req.body;
 
             if (!nome_cliente || cpf == null) {
                 return res.status(400).send('Os campos "nome_cliente" e "cpf" são obrigatórios.');
             }
 
-            const docRef = doc(db, "", id);
+            const docRef = doc(db, "Clientes", id);
 
-            await updateDoc(docRef, {nome_cliente, cpf});
+            await updateDoc(docRef, { nome_cliente, cpf });
 
-            res.status(200).send(`Cliente atualizado com o ID: ${id}`);
+            res.status(200).json({ id, nome_cliente, cpf });
         } catch (error) {
+            console.error('Erro ao atualizar o Cliente:', error);
             res.status(500).send(`Erro ao atualizar o Cliente: ${error.message}`);
         }
     });
