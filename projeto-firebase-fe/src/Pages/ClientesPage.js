@@ -11,7 +11,7 @@ const ClientesPage = () => {
     const [showForm, setShowForm] = useState(false); // Controle do modal de adição/edição
     const [nomeCliente, setNomeCliente] = useState(""); // Estado para nome do cliente
     const [cpf, setCpf] = useState(""); // Estado para CPF do cliente
-    const [clienteEditando, setClienteEditando] = useState({}); // Estado para o cliente que está sendo editado
+    const [clienteEditando, setClienteEditando] = useState(null); // Estado para o cliente que está sendo editado
 
     // Carrega os dados dos clientes
     useEffect(() => {
