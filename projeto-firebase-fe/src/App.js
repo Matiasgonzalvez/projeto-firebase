@@ -5,14 +5,14 @@ import Footer from "./Components/Footer";
 import ClientesPage from "./Pages/ClientesPage";
 import ProdutosPage from "./Pages/ProdutosPage";
 import PontoDeVendaPage from "./Pages/PontoDeVendaPage";
-
+import Home from './Pages/Home';
 
 function App() {
   return (
       <div className="App">
         <Header>PDV</Header>
         <Routes >
-          <Route path="/" element={<div />} />
+          <Route path="/" element={<Home />} />
           <Route path="/clientes" element={<ClientesPage />} />
           <Route path="/produtos" element={<ProdutosPage />} />
           <Route path="/ponto-de-venda" element={<PontoDeVendaPage />} />
